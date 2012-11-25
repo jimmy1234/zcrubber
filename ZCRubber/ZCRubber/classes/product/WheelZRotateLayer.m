@@ -1,0 +1,75 @@
+//
+//  WheelZRotateLayer.m
+//  ZCRubber
+//
+//  Created by quan jimmy on 12-11-11.
+//
+//
+
+#import "WheelZRotateLayer.h"
+
+@implementation WheelZRotateLayer
+@synthesize backgroundImage,imgIndex,wheelId;
+- (id) init {
+    self = [super init];
+    if(self != nil) {
+        
+    }
+    return self;
+}
+
+-(void) initWithWheelId:(NSString *)wheelId {
+    self.wheelId = wheelId;
+    backgroundImage = [CCSprite spriteWithFile:[wheelId stringByAppendingFormat: @"_cm_0000.png"]];
+    CGSize screenSize = [[CCDirector sharedDirector]winSize];
+    [backgroundImage setPosition:CGPointMake(screenSize.width/2, screenSize.height/2)];
+    [self addChild:backgroundImage z:6 tag:10];
+    //self.isTouchEnabled = YES;
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    return TRUE;
+}
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    
+    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+    CGPoint oldTouchLocation = [touch previousLocationInView:touch.view];
+    
+    oldTouchLocation = [[CCDirector sharedDirector] convertToGL:oldTouchLocation];
+    oldTouchLocation = [self convertToNodeSpace:oldTouchLocation];
+    
+    CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
+    if (translation.y == 0) {
+        return;
+    }
+    if (translation.y > 0 && touchLocation.x-backgroundImage.position.x > 0) {
+        imgIndex++;
+    } else if (translation.y > 0 && touchLocation.x-backgroundImage.position.x < 0) {
+        imgIndex--;
+    } else if(translation.y < 0 && touchLocation.x-backgroundImage.position.x > 0){
+        imgIndex--;
+    } else {
+        imgIndex++;
+    }
+    if (imgIndex < 0) {
+        imgIndex = 71;
+    } else if (imgIndex > 71) {
+        imgIndex = 0;
+    }
+
+    
+    NSString *str = nil;
+    if(imgIndex < 10) {
+        str = [wheelId stringByAppendingFormat: @"_cm_000%d.png", imgIndex];
+    } else str = [wheelId stringByAppendingFormat: @"_cm_00%d.png", imgIndex];
+	// get the label by its tag - CCLabel is of course derived from CCNode
+	backgroundImage.texture = [[CCTextureCache sharedTextureCache] addImage:str];
+}
+
+- (void) dealloc
+{
+	// don't forget to call "super dealloc"
+	[super dealloc];
+}
+@end
