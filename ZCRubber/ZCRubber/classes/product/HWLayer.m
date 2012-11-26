@@ -43,9 +43,9 @@
         btnItem2.position = ccp(540, 570);
         
         CCMenuItemImage  *btnItem3 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
-                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button2Tapped:)];
-        btnItem3.position = ccp(540, 570);
-        CCMenu *menu = [CCMenu menuWithItems:btnItem1, btnItem2, nil];
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button3Tapped:)];
+        btnItem3.position = ccp(370, 250);
+        CCMenu *menu = [CCMenu menuWithItems:btnItem1, btnItem2, btnItem3, nil];
         menu.anchorPoint = ccp(0, 0);
         menu.position = ccp(0, 0);
         [self addChild:menu z:1];
@@ -68,6 +68,13 @@
 
 -(void) button2Tapped:(id) sender {
     CCSprite *sprite = [CCSprite spriteWithFile:[wheelId stringByAppendingFormat:@"_hw2.png"]];
+    [self changeMenuItemState:(CCMenuItem *)sender newSprite:sprite];
+}
+
+
+
+-(void) button3Tapped:(id) sender {
+    CCSprite *sprite = [CCSprite spriteWithFile:[wheelId stringByAppendingFormat:@"_hw3.png"]];
     [self changeMenuItemState:(CCMenuItem *)sender newSprite:sprite];
 }
 

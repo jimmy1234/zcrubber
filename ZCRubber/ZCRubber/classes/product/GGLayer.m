@@ -41,13 +41,18 @@
     }
     CGSize screenSize = [[CCDirector sharedDirector]winSize];
     ScrollViewLayer *layer = [ScrollViewLayer node];
-    [layer initWithFile:header : [wheelId stringByAppendingFormat:@"_gg"] :400.0 ];
+    [layer initWithFile:header : [wheelId stringByAppendingFormat:@"_gg.png"] :550 ];
     [layer setTablePostion:ccp(screenSize.width/2, screenSize.height/2)];
     [self addChild:layer];
 
     
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    //[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     
 }
+
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    return TRUE;
+}
+
 
 @end
