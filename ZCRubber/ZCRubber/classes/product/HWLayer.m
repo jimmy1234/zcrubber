@@ -25,7 +25,7 @@
     CGSize screenSize = [[CCDirector sharedDirector]winSize];
     NSString *hwFile = [wheelId stringByAppendingFormat:@"_hw0.png"];
     backgroundImage = [CCSprite spriteWithFile:hwFile];
-    backgroundImage.position = ccp(screenSize.width/2, 124);
+    backgroundImage.position = ccp(screenSize.width/2, backgroundImage.contentSize.height/2);
     [self addChild:backgroundImage z:0 tag:TAG];
     [self buildMenu];
     
@@ -42,6 +42,9 @@
                                                              selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button2Tapped:)];
         btnItem2.position = ccp(540, 570);
         
+        CCMenuItemImage  *btnItem3 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button2Tapped:)];
+        btnItem3.position = ccp(540, 570);
         CCMenu *menu = [CCMenu menuWithItems:btnItem1, btnItem2, nil];
         menu.anchorPoint = ccp(0, 0);
         menu.position = ccp(0, 0);
