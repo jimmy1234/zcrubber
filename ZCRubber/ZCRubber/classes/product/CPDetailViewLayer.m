@@ -83,14 +83,13 @@ model m = BACKGROUND;
         
         CCMenuItem *chaMenuItem = [CCMenuItemImage itemFromNormalImage:@"return_button.png" selectedImage:@"return_button.png" target:self selector:@selector(chaButtonTapped:)];
         chaMenuItem.anchorPoint = ccp(0, 0);
-        chaMenuItem.position = CGPointMake(20, 728);
+        chaMenuItem.position = CGPointMake(10, 728);
         
+        NSDictionary dic = [NSDictionary dictionaryWithContentsOfFile:<#(NSString *)#>]
         CCMenu *menu = [CCMenu menuWithItems:menu360Item, csMenuItem, zsMenuItem, videoMenuItem,grainMenuItem,structMenuItem,formularMenuItem,ruleMenuItem,styleMenuItem, chaMenuItem, nil];
         menu.position = CGPointMake(0, 0);
         menu.anchorPoint = ccp(0, 0);
         [self addChild:menu z:6 tag:20];
-        
-
         
     }
     return self;
