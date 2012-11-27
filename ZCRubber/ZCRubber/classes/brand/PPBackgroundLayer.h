@@ -10,4 +10,6 @@
 
 @interface PPBackgroundLayer : CCLayer
 
+#define COMPANY_WEBSITE @"http://www.chaoyang.com"
+
 @end

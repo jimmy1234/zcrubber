@@ -13,5 +13,6 @@
 #define DEDAIL_MAP_TAG 211
 -(void) selectTodo: (id)sender;
 -(void) moveDetailImg;
+@property (nonatomic, retain) CCLayer* parentLayer;
 
 @end

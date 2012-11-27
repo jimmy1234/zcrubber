@@ -12,6 +12,7 @@
 #import "CCUIViewWrapper.h"
 #import "CompanySummaryMenuLayer.h"
 #import "CCVideoPlayer.h"
+#import "SummaryShleflayer.h"
 
 
 
@@ -28,26 +29,27 @@
         [self addChild:background z:1 tag:200];
        
         
-        CCMenuItem *aboutMenu = [CCMenuItemImage itemFromNormalImage:@"brand_button_summary.png" selectedImage:@"brand_button_summary_hover.png" target:self selector:@selector(selectTodo:)];
-        aboutMenu.position = ccp(180, 408) ;
-        aboutMenu.anchorPoint = ccp(0, 0);
+        CCMenuItem *topMenu = [CCMenuItemImage itemFromNormalImage:@"brand_menu_top.png" selectedImage:@"brand_menu_top_hover.png" target:self selector:@selector(showSummaryShlefLayer:)];
+        topMenu.position = ccp(110, 458) ;
+        topMenu.anchorPoint = ccp(0, 0);
         
-        CCMenuItem *gameMenu = [CCMenuItemImage itemFromNormalImage:@"brand_button_driftRace.png" selectedImage:@"brand_button_driftRace_hover.png" target:self selector:@selector(selectTodo:)];
-        gameMenu.position = ccp(600, 408);
+        CCMenuItem *gameMenu = [CCMenuItemImage itemFromNormalImage:@"brand_menu_drift.png" selectedImage:@"brand_menu_drift_hover.png" target:self selector:@selector(selectTodo:)];
+        gameMenu.position = ccp(600, 458);
         gameMenu.anchorPoint = ccp(0, 0);
         
-        CCMenuItem *adMenu = [CCMenuItemImage itemFromNormalImage:@"brand_button_video.png" selectedImage:@"brand_button_video_hover.png" target:self selector:@selector(palyVideo:)];
-        adMenu.position = ccp(180, 138);
+        CCMenuItem *adMenu = [CCMenuItemImage itemFromNormalImage:@"brand_menu_ad.png" selectedImage:@"brand_menu_ad_hover.png" target:self selector:@selector(palyVideo:)];
+        adMenu.position = ccp(110, 88);
         adMenu.anchorPoint = ccp(0, 0);
         
-        CCMenuItem *websiteMenu = [CCMenuItemImage itemFromNormalImage:@"brand_button_website.png" selectedImage:@"brand_button_website_hover.png" target:self selector:@selector(openURL:)];
-        websiteMenu.position = ccp(600, 138);
+        CCMenuItem *websiteMenu = [CCMenuItemImage itemFromNormalImage:@"brand_menu_website.png" selectedImage:@"brand_menu_website_hover.png" target:self selector:@selector(openURL:)];
+        websiteMenu.position = ccp(600, 88);
         websiteMenu.anchorPoint = ccp(0, 0);
         
+        CCMenuItem *orgMenu = [CCMenuItemImage itemFromNormalImage:@"brand_menu_org.png" selectedImage:@"brand_menu_org_hover.png" target:self selector:@selector(selectTodo:)];
+        orgMenu.position = ccp(360, 268);
+        orgMenu.anchorPoint = ccp(0, 0);       
         
-        
-        
-        CCMenu *menu = [CCMenu menuWithItems:aboutMenu, gameMenu, adMenu, websiteMenu, nil];
+        CCMenu *menu = [CCMenu menuWithItems:topMenu, gameMenu, adMenu, websiteMenu, orgMenu, nil];
         menu.position = ccp(0, 0);
         //[menu setAnchorPoint: ccp(0, 0)];
         
@@ -66,10 +68,27 @@
     //[self addChild:layer  z:8];
     
     CompanySummaryMenuLayer *summaryLayer = [[CompanySummaryMenuLayer alloc]init];
-    [self addChild:summaryLayer  z:8];
+    //[self addChild:summaryLayer  z:8];
+    CCDirector *director = [CCDirector sharedDirector];
+    CCScene *scene = [CCScene node];
+    [scene addChild:summaryLayer];
+
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [director pushScene:scene];
 
 
    
+}
+
+-(void) showSummaryShlefLayer: (id) sender {
+    SummaryShlefLayer *shlefLayer = [SummaryShlefLayer node];
+    CCDirector *director = [CCDirector sharedDirector];
+    CCScene *scene = [CCScene node];
+    [scene addChild:shlefLayer];
+    shlefLayer.preLayer = self;
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [director pushScene:scene]; 
+    
 }
 
 -(void) palyVideo: (id) sender {
@@ -77,7 +96,7 @@
 }
 
 -(void) openURL: (id) sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.chaoyang.com"]];    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:COMPANY_WEBSITE]];    
 }
 
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{   

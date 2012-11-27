@@ -2,6 +2,8 @@
 
 @implementation CompanySummaryMenuLayer
 
+@synthesize parentLayer;
+
 -(id) init {
     if((self = [super init])) {
         NSLog(@"menuPara init");
@@ -14,9 +16,13 @@
         CGSize screenSize = [[CCDirector sharedDirector]winSize];
         CCSprite *background = [CCSprite spriteWithFile:@"brand_summary_bg.png"];
         background.position = ccp(screenSize.width/2, screenSize.height/2);
-        [self addChild:background];
+        [self addChild:background];        
         
-        CCMenu *menu = [CCMenu menuWithItems: nil];
+        CCMenuItem *chaMenuItem = [CCMenuItemImage itemFromNormalImage:@"cha.png" selectedImage:@"cha.png" target:self selector:@selector(closeButton:)];
+        chaMenuItem.anchorPoint = ccp(0, 0);
+        chaMenuItem.position = CGPointMake(938, 700);
+        
+        CCMenu *menu = [CCMenu menuWithItems: chaMenuItem, nil];
         for (NSArray *p in resources) {
             NSArray *params = [[p objectAtIndex:0] componentsSeparatedByString:@"|"];
             CCMenuItem *menuItem = [CCMenuItemImage itemFromNormalImage:[params objectAtIndex:0] selectedImage:[params objectAtIndex:0] target:self selector:@selector(selectTodo:)];
@@ -24,7 +30,9 @@
             menuItem.anchorPoint = ccp(0, 0);
             menuItem.userData = [p objectAtIndex:1];
             [menu addChild:menuItem];
-        }      
+        }
+
+        menu.anchorPoint = ccp(0, 0);
         menu.position = ccp(0, 0);
         [self addChild:menu];
     }    
@@ -63,6 +71,12 @@
             [self removeChild:pre cleanup:TRUE];
         }
     }    
+}
+
+-(void) closeButton:(id) sender {
+    CCDirector *director = [CCDirector sharedDirector];
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:parentLayer priority:0 swallowsTouches:YES];
+    [director popScene];
 }
 
 @end

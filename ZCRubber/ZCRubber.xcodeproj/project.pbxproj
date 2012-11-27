@@ -516,6 +516,8 @@
 		83F63F341660A6C400550AF3 /* videoOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoOverlayView.h; sourceTree = "<group>"; };
 		83F63F351660A6C400550AF3 /* videoOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoOverlayView.m; sourceTree = "<group>"; };
 		83F63F371660A6C400550AF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		83FCB33F1665094100A2BAD7 /* SummaryShlefLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SummaryShlefLayer.h; sourceTree = "<group>"; };
+		83FCB3401665094100A2BAD7 /* SummaryShlefLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SummaryShlefLayer.m; sourceTree = "<group>"; };
 		EF229BE21660946800683A02 /* etail_button_pop_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etail_button_pop_hover.png; sourceTree = "<group>"; };
 		EF229BE31660946800683A02 /* etail_button_pop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etail_button_pop.png; sourceTree = "<group>"; };
 		EF229BE41660946800683A02 /* etail_button_sale_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = etail_button_sale_hover.png; sourceTree = "<group>"; };
@@ -1958,6 +1960,8 @@
 		EF8993E7164E5473001FB85F /* brand */ = {
 			isa = PBXGroup;
 			children = (
+				83FCB33F1665094100A2BAD7 /* SummaryShlefLayer.h */,
+				83FCB3401665094100A2BAD7 /* SummaryShlefLayer.m */,
 				8328450B165BCE8C00613BB2 /* ImageUIViewScrollViewLayer.h */,
 				8328450C165BCE8C00613BB2 /* ImageUIViewScrollViewLayer.m */,
 				EF8993E8164E56F5001FB85F /* PPBackgroundLayer.h */,
