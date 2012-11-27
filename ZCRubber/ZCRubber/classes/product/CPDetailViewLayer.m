@@ -85,7 +85,9 @@ model m = BACKGROUND;
         chaMenuItem.anchorPoint = ccp(0, 0);
         chaMenuItem.position = CGPointMake(10, 728);
         
-        NSDictionary dic = [NSDictionary dictionaryWithContentsOfFile:<#(NSString *)#>]
+        NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"productUI" ofType:@"xml"];
+        NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile :plistPath];
+        NSArray *funcs = [dic objectForKey:wheelId];
         CCMenu *menu = [CCMenu menuWithItems:menu360Item, csMenuItem, zsMenuItem, videoMenuItem,grainMenuItem,structMenuItem,formularMenuItem,ruleMenuItem,styleMenuItem, chaMenuItem, nil];
         menu.position = CGPointMake(0, 0);
         menu.anchorPoint = ccp(0, 0);
