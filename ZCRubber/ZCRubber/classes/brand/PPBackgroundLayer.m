@@ -81,13 +81,13 @@
 }
 
 -(void) showSummaryShlefLayer: (id) sender {
-    SummaryShlefLayer *shlefLayer = [SummaryShlefLayer node];
-    CCDirector *director = [CCDirector sharedDirector];
-    CCScene *scene = [CCScene node];
-    [scene addChild:shlefLayer];
-    shlefLayer.preLayer = self;
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-    [director pushScene:scene]; 
+    //SummaryShlefLayer *shlefLayer = [SummaryShlefLayer node];
+   // CCDirector *director = [CCDirector sharedDirector];
+   // CCScene *scene = [CCScene node];
+   // [scene addChild:shlefLayer];
+   // shlefLayer.preLayer = self;
+   // [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+   // [director pushScene:scene];
     
 }
 
