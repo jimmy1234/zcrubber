@@ -50,6 +50,22 @@
         menu.position = ccp(0, 0);
         [self addChild:menu z:1];
         
+    } else if([wheelId isEqualToString :@"SL369"]) {
+        CCMenuItemImage  *btnItem1 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button1Tapped:)];
+        btnItem1.position = ccp(390, 400);
+        CCMenuItemImage  *btnItem2 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button2Tapped:)];
+        btnItem2.position = ccp(540, 570);
+        
+        CCMenuItemImage  *btnItem3 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button3Tapped:)];
+        btnItem3.position = ccp(370, 250);
+        CCMenu *menu = [CCMenu menuWithItems:btnItem1, btnItem2, btnItem3, nil];
+        menu.anchorPoint = ccp(0, 0);
+        menu.position = ccp(0, 0);
+        [self addChild:menu z:1];
+        
     }
 
 }

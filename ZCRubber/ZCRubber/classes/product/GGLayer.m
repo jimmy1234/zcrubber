@@ -37,7 +37,7 @@
     self.wheelId = wheelId;
     NSString *header = @"header.png";
     if ([wheelId isEqualToString:@"SU317"] || [wheelId isEqualToString:@"SL369"]) {
-        header = @"header2.png";
+        header = @"header_2.png";
     }
     CGSize screenSize = [[CCDirector sharedDirector]winSize];
     ScrollViewLayer *layer = [ScrollViewLayer node];
