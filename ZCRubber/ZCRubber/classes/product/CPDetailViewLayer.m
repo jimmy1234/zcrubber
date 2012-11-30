@@ -43,55 +43,7 @@ model m = BACKGROUND;
 
         self.isTouchEnabled = YES;
         
-        CCMenuItem *menu360Item = [CCMenuItemImage itemFromNormalImage:@"bar_left_360.png" selectedImage:@"bar_left_360_hover.png" disabledImage:@"bar_left_360_hover.png" target:self selector:@selector(button360Tapped:)];
-        [menu360Item setIsEnabled:NO];
-        lastMenuItem = menu360Item;
-        menu360Item.anchorPoint = ccp(0, 0);
-        menu360Item.position = CGPointMake(0, 530);
-        
-        CCMenuItem *csMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_left_s.png" selectedImage:@"bar_left_s_hover.png" disabledImage:@"bar_left_s_hover.png" target:self selector:@selector(csButtonTapped:)];
-        csMenuItem.anchorPoint = ccp(0, 0);
-        csMenuItem.position = CGPointMake(0, 430);
-        
-        CCMenuItem *zsMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_left_t.png" selectedImage:@"bar_left_t_hover.png" disabledImage:@"bar_left_t_hover.png" target:self selector:@selector(zsButtonTapped:)];
-        zsMenuItem.anchorPoint = ccp(0, 0);
-        zsMenuItem.position = CGPointMake(0, 330);
-        
-        CCMenuItem *videoMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_left_video.png" selectedImage:@"bar_left_video_hover.png" disabledImage:@"bar_left_video_hover.png" target:self selector:@selector(videoButtonTapped:)];
-        videoMenuItem.anchorPoint = ccp(0, 0);
-        videoMenuItem.position = CGPointMake(0, 230);
-        
-        CCMenuItem *grainMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_grain.png" selectedImage:@"bar_right_grain_hover.png" disabledImage:@"bar_right_grain_hover.png"  target:self selector:@selector(grainButtonTapped:)];
-        grainMenuItem.anchorPoint = ccp(0, 0);
-        grainMenuItem.position = CGPointMake(938, 530);
-        
-        CCMenuItem *structMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_struct.png" selectedImage:@"bar_right_struct_hover.png" disabledImage:@"bar_right_struct_hover.png" target:self selector:@selector(grainButtonTapped:)];
-        structMenuItem.anchorPoint = ccp(0, 0);
-        structMenuItem.position = CGPointMake(938, 430);
-        
-        CCMenuItem *formularMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_formula.png" selectedImage:@"bar_right_formula_hover.png" disabledImage:@"bar_right_formula_hover.png" target:self selector:@selector(formularButtonTapped:)];
-        formularMenuItem.anchorPoint = ccp(0, 0);
-        formularMenuItem.position = CGPointMake(938, 330);
-        
-        CCMenuItem *ruleMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_ruler.png" selectedImage:@"bar_right_ruler_hover.png" disabledImage:@"bar_right_ruler_hover.png" target:self selector:@selector(ruleButtonTapped:)];
-        ruleMenuItem.anchorPoint = ccp(0, 0);
-        ruleMenuItem.position = CGPointMake(938, 230);
-        
-        CCMenuItem *styleMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_style.png" selectedImage:@"bar_right_style_hover.png" disabledImage:@"bar_right_style_hover.png" target:self selector:@selector(styleButtonTapped:)];
-        styleMenuItem.anchorPoint = ccp(0, 0);
-        styleMenuItem.position = CGPointMake(938, 130);
-        
-        CCMenuItem *chaMenuItem = [CCMenuItemImage itemFromNormalImage:@"return_button.png" selectedImage:@"return_button.png" target:self selector:@selector(chaButtonTapped:)];
-        chaMenuItem.anchorPoint = ccp(0, 0);
-        chaMenuItem.position = CGPointMake(10, 728);
-        
-        NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"productUI" ofType:@"xml"];
-        NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile :plistPath];
-        NSArray *funcs = [dic objectForKey:wheelId];
-        CCMenu *menu = [CCMenu menuWithItems:menu360Item, csMenuItem, zsMenuItem, videoMenuItem,grainMenuItem,structMenuItem,formularMenuItem,ruleMenuItem,styleMenuItem, chaMenuItem, nil];
-        menu.position = CGPointMake(0, 0);
-        menu.anchorPoint = ccp(0, 0);
-        [self addChild:menu z:6 tag:20];
+
         
     }
     return self;
@@ -102,6 +54,75 @@ model m = BACKGROUND;
     lastLayer = [[WheelRotateLayer node] retain];
     [lastLayer initWithWheelId:wheelId];
     [self addChild:lastLayer z:10];
+    
+    CCMenuItem *menu360Item = [CCMenuItemImage itemFromNormalImage:@"bar_left_360.png" selectedImage:@"bar_left_360_hover.png" disabledImage:@"bar_left_360_hover.png" target:self selector:@selector(button360Tapped:)];
+    [menu360Item setIsEnabled:NO];
+    lastMenuItem = menu360Item;
+    menu360Item.anchorPoint = ccp(0, 0);
+    menu360Item.position = CGPointMake(0, 530);
+    
+    CCMenuItem *csMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_left_s.png" selectedImage:@"bar_left_s_hover.png" disabledImage:@"bar_left_s_hover.png" target:self selector:@selector(csButtonTapped:)];
+    csMenuItem.anchorPoint = ccp(0, 0);
+    csMenuItem.position = CGPointMake(0, 430);
+    
+    CCMenuItem *zsMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_left_t.png" selectedImage:@"bar_left_t_hover.png" disabledImage:@"bar_left_t_hover.png" target:self selector:@selector(zsButtonTapped:)];
+    zsMenuItem.anchorPoint = ccp(0, 0);
+    zsMenuItem.position = CGPointMake(0, 330);
+    
+    NSInteger rightY = 530;
+    
+    CCMenuItem *grainMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_grain.png" selectedImage:@"bar_right_grain_hover.png" disabledImage:@"bar_right_grain_hover.png"  target:self selector:@selector(grainButtonTapped:)];
+    grainMenuItem.anchorPoint = ccp(0, 0);
+    grainMenuItem.position = CGPointMake(938, 530);
+    rightY -= 100;
+    
+    
+    CCMenuItem *chaMenuItem = [CCMenuItemImage itemFromNormalImage:@"return_button.png" selectedImage:@"return_button.png" target:self selector:@selector(chaButtonTapped:)];
+    chaMenuItem.anchorPoint = ccp(0, 0);
+    chaMenuItem.position = CGPointMake(10, 728);
+    
+    CCMenu *menu = [CCMenu menuWithItems:menu360Item, csMenuItem, zsMenuItem,grainMenuItem, chaMenuItem, nil];
+    
+    NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"productUI" ofType:@"xml"];
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile :plistPath];
+    NSArray *funcs = [dic objectForKey:wheelId];
+    for (int i = 0; i < [funcs count]; i++) {
+        NSString *fun = [funcs objectAtIndex:i];
+        if ([fun isEqualToString:@"jg"]) {
+            CCMenuItem *structMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_struct.png" selectedImage:@"bar_right_struct_hover.png" disabledImage:@"bar_right_struct_hover.png" target:self selector:@selector(grainButtonTapped:)];
+            structMenuItem.anchorPoint = ccp(0, 0);
+            structMenuItem.position = CGPointMake(938, rightY);
+            rightY -= 100;
+            [menu addChild:structMenuItem];
+        } else if ([fun isEqualToString:@"pf"]) {
+            CCMenuItem *formularMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_formula.png" selectedImage:@"bar_right_formula_hover.png" disabledImage:@"bar_right_formula_hover.png" target:self selector:@selector(formularButtonTapped:)];
+            formularMenuItem.anchorPoint = ccp(0, 0);
+            formularMenuItem.position = CGPointMake(938, rightY);
+            rightY -= 100;
+            [menu addChild:formularMenuItem];
+        } else if ([fun isEqualToString:@"sp"]) {
+            CCMenuItem *videoMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_left_video.png" selectedImage:@"bar_left_video_hover.png" disabledImage:@"bar_left_video_hover.png" target:self selector:@selector(videoButtonTapped:)];
+            videoMenuItem.anchorPoint = ccp(0, 0);
+            videoMenuItem.position = CGPointMake(0, 230);
+            [menu addChild:videoMenuItem];
+        }
+    }
+    
+    
+    CCMenuItem *ruleMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_ruler.png" selectedImage:@"bar_right_ruler_hover.png" disabledImage:@"bar_right_ruler_hover.png" target:self selector:@selector(ruleButtonTapped:)];
+    ruleMenuItem.anchorPoint = ccp(0, 0);
+    ruleMenuItem.position = CGPointMake(938, rightY);
+    rightY -= 100;
+    [menu addChild:ruleMenuItem];
+    
+    CCMenuItem *styleMenuItem = [CCMenuItemImage itemFromNormalImage:@"bar_right_style.png" selectedImage:@"bar_right_style_hover.png" disabledImage:@"bar_right_style_hover.png" target:self selector:@selector(styleButtonTapped:)];
+    styleMenuItem.anchorPoint = ccp(0, 0);
+    styleMenuItem.position = CGPointMake(938, rightY);
+    [menu addChild:styleMenuItem];
+    
+    menu.position = CGPointMake(0, 0);
+    menu.anchorPoint = ccp(0, 0);
+    [self addChild:menu z:6 tag:20];
 }
 
 -(void) button360Tapped:(id) sender {

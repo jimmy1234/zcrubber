@@ -23,7 +23,7 @@
         CGSize screenSize = [[CCDirector sharedDirector]winSize];
         index2WheelId = [[NSDictionary dictionaryWithObjectsAndKeys:
                          @"RP26",[NSNumber numberWithInt: 0],
-                         @"RP26",[NSNumber numberWithInt: 1],
+                         @"SL369",[NSNumber numberWithInt: 1],
                          @"RP26",[NSNumber numberWithInt: 2],
                          @"RP26",[NSNumber numberWithInt: 3],
                          @"RP26",[NSNumber numberWithInt: 4],
