@@ -35,13 +35,13 @@
         CGSize screenSize = [[CCDirector sharedDirector]winSize];
     
         CCMenuItem *storeMenuItem = [CCMenuItemImage itemFromNormalImage:@"etail_button_store.png" selectedImage:@"etail_button_store_hover.png" target:self selector:@selector(storeButtonTapped:)];
-        storeMenuItem.position = CGPointMake(500, 550);
+        storeMenuItem.position = CGPointMake(510, 535);
         
         CCMenuItem *popMenuItem = [CCMenuItemImage itemFromNormalImage:@"etail_button_sale.png" selectedImage:@"etail_button_sale_hover.png" target:self selector:@selector(popButtonTapped:)];
-        popMenuItem.position = CGPointMake(250, 300);
+        popMenuItem.position = CGPointMake(267, 275);
         
         CCMenuItem *saleMenuItem = [CCMenuItemImage itemFromNormalImage:@"etail_button_pop.png" selectedImage:@"etail_button_pop_hover.png" target:self selector:@selector(saleButtonTapped:)];
-        saleMenuItem.position = CGPointMake(750, 300);
+        saleMenuItem.position = CGPointMake(760, 275);
         
         
         CCMenu *menu = [CCMenu menuWithItems:storeMenuItem, popMenuItem, saleMenuItem, nil];
