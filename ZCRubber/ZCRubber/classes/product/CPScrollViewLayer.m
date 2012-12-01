@@ -16,14 +16,14 @@
 
 
 @implementation CPScrollViewLayer
-@synthesize movableSprites,selSprite,background,beginPoint,index2WheelId;
+@synthesize movableSprites,selSprite,background,beginPoint,index2WheelId,selNameSprite;
 
 -(id) init {
     if((self = [super init])) {
         CGSize screenSize = [[CCDirector sharedDirector]winSize];
         index2WheelId = [[NSDictionary dictionaryWithObjectsAndKeys:
                          @"RP26",[NSNumber numberWithInt: 0],
-                         @"RP26",[NSNumber numberWithInt: 1],
+                         @"SL369",[NSNumber numberWithInt: 1],
                          @"RP26",[NSNumber numberWithInt: 2],
                          @"RP26",[NSNumber numberWithInt: 3],
                          @"RP26",[NSNumber numberWithInt: 4],
@@ -43,8 +43,7 @@
         for (int i = 1; i< NUM+1; i++) {
             NSString * img = [NSString stringWithFormat:@"%d#.png", i];
             CCSprite *sprite = [CCSprite spriteWithFile:img];
-            //float offsetFraction = ((float)(i+1))/11;
-            sprite.position = ccp((i-1)*sprite.contentSize.width, screenSize.height/2.5);
+            sprite.position = ccp((i-1)*sprite.contentSize.width, 350);
             [background addChild:sprite];
             [movableSprites addObject:sprite];
         }
@@ -59,9 +58,7 @@
     
     CCSprite *centerSprite = [movableSprites objectAtIndex:centerIndex];
     centerSprite.scale = 1;
-    if (centerIndex == 0) {
-        NSLog(@"caculate %f %f %f %d %@",centerSprite.boundingBox.origin.x,centerSprite.boundingBox.origin.y,centerSprite.boundingBox.size.width, centerIndex, centerSprite);
-    }
+    [self displayNameSprite:centerIndex];
     
     //centerSprite.position = ccp(screenSize.width/2, screenSize.height/3);
     if (centerIndex < NUM-2 && centerIndex > 1) {
@@ -144,6 +141,7 @@
     if(newSprite != selSprite) {
         if (newSprite.scale<1) {
             newSprite.scale =1;
+            [self displayNameSprite:indexOfCenter];
             
             CGPoint translation = ccpSub( ccp(screenSize.width/2, newSprite.position.y), newSprite.position);
             [self panForTranslation:translation];
@@ -215,11 +213,11 @@
     CGPoint translation = ccpSub(touchLocation, oldTouchLocation);
     CGSize screenSize = [[CCDirector sharedDirector]winSize];
     CCSprite *sprite = [movableSprites objectAtIndex:0];
-    if(CGRectContainsPoint(sprite.boundingBox, ccp(screenSize.width/2, sprite.position.y)) && translation.x>0) {
+    if(CGRectContainsPoint(sprite.boundingBox, ccp(screenSize.width/2+90, sprite.position.y)) && translation.x>0) {
         return;
     }
     sprite = [movableSprites objectAtIndex:[movableSprites count]-1];
-    if(CGRectContainsPoint(sprite.boundingBox, ccp(screenSize.width/2, sprite.position.y)) && translation.x<0) {
+    if(CGRectContainsPoint(sprite.boundingBox, ccp(screenSize.width/2-90, sprite.position.y)) && translation.x<0) {
         return;
     }
     NSInteger indexOfCenter = -1, i=0;
@@ -251,6 +249,22 @@
     if (abs(beginPoint.x - touchLocation.x) < 5) {
         [self selectSpriteForTouch:touchLocation];
     }
+    
+}
+
+- (void) displayNameSprite:(NSInteger) centerIndex {
+    if(selNameSprite != nil) {
+        [background removeChild:selNameSprite cleanup:YES];
+    }
+    NSString * img = [NSString stringWithFormat:@"name%d.png", centerIndex+1];
+    selNameSprite = [CCSprite spriteWithFile:img];
+    CGSize screenSize = [[CCDirector sharedDirector]winSize];
+    selNameSprite.position = ccp(screenSize.width/2, 150);
+    [background addChild:selNameSprite];
+    CCAction *moveTo1 = [CCMoveBy actionWithDuration:0.5  position:ccp(50, 0)];
+    CCAction *moveTo2 = [CCMoveBy actionWithDuration:0.5 position:ccp(-50, 0)];
+    [selNameSprite runAction:moveTo1];
+    [selNameSprite runAction:moveTo2];
     
 }
 

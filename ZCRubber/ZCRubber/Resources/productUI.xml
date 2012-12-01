@@ -4,99 +4,46 @@
 <dict>
     <key>SA-07</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
-        <string>sp</string>
-        <string>hw</string>
         <string>jg</string>
-        <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
     <key>RP26</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
-        <string>sp</string>
-        <string>hw</string>
-        <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
     <key>RP36</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
         <string>sp</string>
-        <string>hw</string>
         <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
     <key>SL305</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
         <string>sp</string>
-        <string>hw</string>
         <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
     <key>RP09</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
         <string>sp</string>
-        <string>hw</string>
         <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
     <key>SA37</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
         <string>sp</string>
-        <string>hw</string>
         <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
     <key>SU317</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
-        <string>sp</string>
-        <string>hw</string>
         <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
         <string>sp</string>
     </array>
     <key>SL369</key>
     <array>
-        <string>360</string>
-        <string>cm</string>
-        <string>zm</string>
         <string>sp</string>
-        <string>hw</string>
-        <string>jg</string>
         <string>pf</string>
-        <string>gg</string>
-        <string>sp</string>
     </array>
 </dict>
 </plist>

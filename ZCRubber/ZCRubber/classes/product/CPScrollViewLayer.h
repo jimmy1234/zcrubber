@@ -14,6 +14,7 @@
 @property (nonatomic,retain) NSMutableArray *movableSprites;
 @property (nonatomic) CGPoint beginPoint;
 @property (nonatomic,retain) NSDictionary *index2WheelId;
+@property (nonatomic,retain) CCSprite *selNameSprite;
 
 -(void) panForTranslation:(CGPoint)translation;
 -(NSInteger) indexofCenter:(CGPoint)touchLocation;

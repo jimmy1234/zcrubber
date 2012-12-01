@@ -50,6 +50,31 @@
         menu.position = ccp(0, 0);
         [self addChild:menu z:1];
         
+    } else if([wheelId isEqualToString :@"SL369"]) {
+        CCMenuItemImage  *btnItem1 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button1Tapped:)];
+        btnItem1.position = ccp(390, 400);
+        
+        CCMenuItemImage  *btnItem2 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button2Tapped:)];
+        btnItem2.position = ccp(540, 570);
+        
+        CCMenuItemImage  *btnItem3 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button3Tapped:)];
+        btnItem3.position = ccp(370, 250);
+        
+        CCMenuItemImage  *btnItem4 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button4Tapped:)];
+        btnItem4.position = ccp(390, 400);
+        
+        CCMenuItemImage  *btnItem5 = [CCMenuItemImage itemFromNormalImage:@"bluebtn1.png"
+                                                            selectedImage:@"bluebtn2.png" disabledImage:@"bluebtn2.png" target:self selector:@selector(button5Tapped:)];
+        btnItem5.position = ccp(540, 570);
+        CCMenu *menu = [CCMenu menuWithItems:btnItem1, btnItem2, btnItem3, btnItem4,btnItem5,nil];
+        menu.anchorPoint = ccp(0, 0);
+        menu.position = ccp(0, 0);
+        [self addChild:menu z:1];
+        
     }
 
 }
@@ -71,10 +96,18 @@
     [self changeMenuItemState:(CCMenuItem *)sender newSprite:sprite];
 }
 
-
-
 -(void) button3Tapped:(id) sender {
     CCSprite *sprite = [CCSprite spriteWithFile:[wheelId stringByAppendingFormat:@"_hw3.png"]];
+    [self changeMenuItemState:(CCMenuItem *)sender newSprite:sprite];
+}
+
+-(void) button4Tapped:(id) sender {
+    CCSprite *sprite = [CCSprite spriteWithFile:[wheelId stringByAppendingFormat:@"_hw4.png"]];
+    [self changeMenuItemState:(CCMenuItem *)sender newSprite:sprite];
+}
+
+-(void) button5Tapped:(id) sender {
+    CCSprite *sprite = [CCSprite spriteWithFile:[wheelId stringByAppendingFormat:@"_hw5.png"]];
     [self changeMenuItemState:(CCMenuItem *)sender newSprite:sprite];
 }
 
