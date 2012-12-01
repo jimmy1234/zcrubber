@@ -13,6 +13,7 @@
 #import "CompanySummaryMenuLayer.h"
 #import "SummaryShleflayer.h"
 #import "PlayVedioLayer.h";
+#import "SummaryMenuLayer.h"
 
 
 
@@ -27,6 +28,10 @@
         background.position = ccp(screenSize.width/2, screenSize.height/2);
         NSLog(@"background.position: x:%f, y:%f", background.position.x, background.position.y);
         [self addChild:background z:1 tag:200];
+        
+        CCSprite *topImage = [CCSprite spriteWithFile:@"top.png"];
+        [topImage setPosition:CGPointMake(screenSize.width/2, 768-topImage.contentSize.height/2)];
+        [self addChild:topImage z:1 tag:201];
         
         
         CCMenuItem *aboutMenu = [CCMenuItemImage itemFromNormalImage:@"brand_button_summary.png" selectedImage:@"brand_button_summary_hover.png" target:self selector:@selector(diplaySummaryMenu:)];
@@ -51,7 +56,7 @@
         CCMenu *menu = [CCMenu menuWithItems:aboutMenu, gameMenu, adMenu, websiteMenu, nil];
         menu.position = ccp(0, 0);
         
-        [self addChild:menu z:3 tag:201];
+        [self addChild:menu z:1 tag:202];
 
        
         /*
@@ -99,6 +104,7 @@
     
     CompanySummaryMenuLayer *summaryLayer = [[CompanySummaryMenuLayer alloc]init];
     //[self addChild:summaryLayer  z:8];
+    
     CCDirector *director = [CCDirector sharedDirector];
     CCScene *scene = [CCScene node];
     [scene addChild:summaryLayer];
@@ -122,6 +128,15 @@
 }
 
 -(void) diplaySummaryMenu: (id) sender {
+    SummaryMenuLayer* summaryLayer = [[SummaryMenuLayer alloc] init];
+    summaryLayer.parentLayer = self;
+   [self addChild:summaryLayer z:1 tag:203];
+
+   // CCDirector *director = [CCDirector sharedDirector];
+   // CCScene *scene = [CCScene node];
+   // [scene addChild:summaryLayer];
+   // [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+   // [director pushScene:scene];
     
 }
 

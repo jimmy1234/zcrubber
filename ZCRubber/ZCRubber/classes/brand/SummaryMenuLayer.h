@@ -10,4 +10,6 @@
 
 @interface SummaryMenuLayer : CCLayer
 
+@property (nonatomic,retain) CCLayer* parentLayer;
+
 @end
