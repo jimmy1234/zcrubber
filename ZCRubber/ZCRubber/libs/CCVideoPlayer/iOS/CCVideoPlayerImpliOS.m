@@ -108,8 +108,11 @@
 	
 	if ([theMovie respondsToSelector:@selector(setControlStyle:)])
 	{
-		[ theMovie setControlStyle: MPMovieControlStyleNone ];
+		//[ theMovie setControlStyle: MPMovieControlStyleNone ];
+        [ theMovie setControlStyle: MPMovieControlModeHidden ];
+        //moviePlayer.movieControlMode = MPMovieControlModeHidden;
 	}
+    
 //#ifdef __IPHONE_OS_VERSION_MIN_ALLOWED
 //#if __IPHONE_OS_VERSION_MAX_ALLOWED < 30200
 	else if ( [theMovie respondsToSelector:@selector(setMovieControlMode:)] )

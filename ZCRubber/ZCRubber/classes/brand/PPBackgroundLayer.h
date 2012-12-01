@@ -7,9 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "CCVideoPlayer.h"
 
-@interface PPBackgroundLayer : CCLayer
-
+@interface PPBackgroundLayer : CCLayer <CCVideoPlayerDelegate>
+{
+}
++ (id) scene;
 #define COMPANY_WEBSITE @"http://www.chaoyang.com"
 
 @end
