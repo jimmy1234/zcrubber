@@ -9,9 +9,6 @@
 #import "PPBackgroundLayer.h"
 #import <math.h>
 #import <UIKit/UIKit.h>
-#import "CCUIViewWrapper.h"
-#import "CompanySummaryMenuLayer.h"
-#import "SummaryShleflayer.h"
 #import "PlayVedioLayer.h";
 #import "SummaryMenuLayer.h"
 
@@ -94,54 +91,11 @@
     return self;
 }
 
--(void) selectTodo: (id) sender {
-    // for test
-    //ImageUIViewScrollViewLayer *layer = [[ImageUIViewScrollViewLayer alloc]init];
-    //TableViewLayer *layer = [[TableViewLayer alloc]init];
-    //[layer initWithFilenames:[NSArray arrayWithObjects:@"brand_button_website.png", @"tbody.png",@"brand_button_driftRace.png",@"brand_button_summary.png",nil]];
-  
-    //[self addChild:layer  z:8];
-    
-    CompanySummaryMenuLayer *summaryLayer = [[CompanySummaryMenuLayer alloc]init];
-    //[self addChild:summaryLayer  z:8];
-    
-    CCDirector *director = [CCDirector sharedDirector];
-    CCScene *scene = [CCScene node];
-    [scene addChild:summaryLayer];
-
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-    [director pushScene:scene];
-
-
-   
-}
-
--(void) showSummaryShlefLayer: (id) sender {
-    //SummaryShlefLayer *shlefLayer = [SummaryShlefLayer node];
-   // CCDirector *director = [CCDirector sharedDirector];
-   // CCScene *scene = [CCScene node];
-   // [scene addChild:shlefLayer];
-   // shlefLayer.preLayer = self;
-   // [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-   // [director pushScene:scene];
-    
-}
 
 -(void) diplaySummaryMenu: (id) sender {
     SummaryMenuLayer* summaryLayer = [[SummaryMenuLayer alloc] init];
     summaryLayer.parentLayer = self;
-   [self addChild:summaryLayer z:1 tag:203];
-
-   // CCDirector *director = [CCDirector sharedDirector];
-   // CCScene *scene = [CCScene node];
-   // [scene addChild:summaryLayer];
-   // [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-   // [director pushScene:scene];
-    
-}
-
--(void) dispalyOrg: (id) sender {
-    
+   [self addChild:summaryLayer z:1 tag:203];   
 }
 
 -(void) palyADVideo: (id) sender {
@@ -153,8 +107,8 @@
 }
 
 -(void) palyDriftVideo: (id) sender {
-    [CCVideoPlayer playMovieWithFile:@"drift.MP4"];
-    [CCVideoPlayer setNoSkip: YES];
+    //[CCVideoPlayer playMovieWithFile:@"drift.MP4"];
+    //[CCVideoPlayer setNoSkip: YES];
 
 }
 
